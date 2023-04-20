@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Create folders for each starting letter if they don't exist
+for letter in {a..z}; do
+  if [ ! -d "$letter" ]; then
+    mkdir "$letter"
+  fi
+done
+
+# Loop through each file in the "files" folder
+for file in files/*; do
+  if [[ -f "$file" ]]; then  # check if it's a file
+    # Get the first letter of the file name
+    first_letter=$(basename "$file" | cut -c1 | tr '[:upper:]' '[:lower:]')
+
+    # Move the file to the appropriate folder
+    case $first_letter in
+      a) mv "$file" a/ ;;
+      b) mv "$file" b/ ;;
+      c) mv "$file" c/ ;;
+      d) mv "$file" d/ ;;
+      e) mv "$file" e/ ;;
+      f) mv "$file" f/ ;;
+      g) mv "$file" g/ ;;
+      h) mv "$file" h/ ;;
+      i) mv "$file" i/ ;;
+      j) mv "$file" j/ ;;
+      k) mv "$file" k/ ;;
+      l) mv "$file" l/ ;;
+      m) mv "$file" m/ ;;
+      n) mv "$file" n/ ;;
+      o) mv "$file" o/ ;;
+      p) mv "$file" p/ ;;
+      q) mv "$file" q/ ;;
+      r) mv "$file" r/ ;;
+      s) mv "$file" s/ ;;
+      t) mv "$file" t/ ;;
+      u) mv "$file" u/ ;;
+      v) mv "$file" v/ ;;
+      w) mv "$file" w/ ;;
+      x) mv "$file" x/ ;;
+      y) mv "$file" y/ ;;
+      z) mv "$file" z/ ;;
+      *) echo "Skipping file with unknown first letter: $file" ;;
+    esac
+  fi
+done
+
